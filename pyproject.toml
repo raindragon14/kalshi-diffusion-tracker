@@ -1,0 +1,48 @@
+[project]
+name = "kalshi-diffusion-tracker"
+version = "0.1.0"
+description = "Measures how quickly new information is absorbed into Kalshi prediction market prices"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27.0",
+    "pydantic>=2.8.0",
+    "pydantic-settings>=2.3.0",
+    "python-dotenv>=1.0.0",
+    "sqlite-utils>=3.37.0",
+    "apscheduler>=3.10.0",
+    "numpy>=1.26.0",
+    "scipy>=1.13.0",
+    "firecrawl-py>=1.0.0",
+    "openai>=1.35.0",
+    "tenacity>=8.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.5.0",
+    "mypy>=1.10.0",
+]
+
+[build-system]
+requires = ["setuptools>=69.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "W", "UP", "B", "C4", "ARG", "PTH", "PL", "TRY", "SIM", "TD", "TID", "INP", "EXE", "FA", "ISC", "ICN", "PIE", "T20", "ERA", "PD", "PGH", "PYI", "PT", "RSE", "RET", "RUF", "SLF", "SLOT", "TCH", "INT", "NPY", "PERF", "FURB", "LOG", "AIR", "COM", "DTZ", "T10"]
+ignore = ["E501", "TRY003", "ARG001", "ARG002", "PLW0603", "T201", "PLR2004", "RUF006", "TRY400", "RET504", "B905", "PLR0913", "PLR0917", "F841", "RUF059", "DTZ007", "DTZ003", "UP042"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+strict_optional = true
